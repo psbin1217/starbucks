@@ -1,0 +1,230 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;400&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+ul {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+img {
+	max-width: 100%;
+}
+
+body {
+	font-family: "Alegreya Sans", sans-serif;
+	font-size: 0.8vw;
+	background: #333;
+	color: #fff;
+}
+
+.hide {
+	width: 0;
+	height: 0;
+	line-height: 0;
+	text-indent: -9999px;
+	display: block;
+	overflow: hidden;
+	position: absolute;
+}
+#container {
+	width: 100%;
+	height: 100vh;
+	min-width: 1600px;
+	background: #333;
+	display: flex;
+}
+#container #header {
+	width: 20vw;
+	height: 100%;
+	position: relative;
+	padding: 10vh 5vw;
+	z-index: 3;
+}
+#container #header h1 {
+	font-weight: 100;
+	line-height: 1;
+	font-size: 2vw;
+	width: 108px;
+}
+#container #nav {
+	position: absolute;
+	top: 18vh;
+	z-index: 3;
+	padding: 10vh 5vw;
+}
+#container #nav ul {
+	display: flex;
+	flex-direction: column;
+}
+#container #nav ul li {
+	font-size: 1.3vw;
+	color: #bbb;
+	margin-bottom: 40px;
+	cursor: pointer;
+}
+#container #nav ul li:first-child {
+	color: #fff;
+}
+#container .content {
+	width: 80vw;
+	height: 100%;
+	position: relative;
+	z-index: 1;
+	display: flex;
+	padding-top: 14vh;
+}
+
+#container .content section {
+	flex: 1;
+	padding: 70px 40px 100px;
+	position: relative;
+	opacity: 0.6;
+	transition: opacity 1s, flex 1s;
+	cursor: pointer;
+	overflow: hidden;
+}
+#container .content section::before {
+	content: "";
+	display: block;
+	width: 80%;
+	height: 95%;
+	position: absolute;
+	left: -200%;
+	top: 0;
+	background: #444;
+	opacity: 0;
+	transition: 0.5s;
+}
+
+#container .content section .inner {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: space-between;
+	position: relative;
+}
+#container .content section .inner .txt {
+	width: 100%;
+	transition: 0.5s;
+	height: 40vh;
+}
+#container .content section .inner .txt h2 {
+	font-size: 1.5vw;
+	line-height: 1;
+	position: relative;
+	font-weight: 100;
+	margin-bottom: 40px;
+	transition: 1s;
+}
+#container .content section .inner .txt h2::after {
+	content: "";
+	display: block;
+	width: 40px;
+	height: 2px;
+	background: #777;
+	transition: 1.5s;
+	margin-top: 20px;
+}
+#container .content section .inner .txt h3 {
+	padding-top: 20px;
+	padding-bottom: 5px;
+	color: #bbb;
+}
+#container .content section .inner .txt p {
+	color: #999;
+}
+#container .content section .inner figure {
+	width: 100%;
+	height: 25vh;
+	background: #777;
+	overflow: hidden;
+	box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+	transform-origin: left center;
+	transition: 1s;
+}
+#container .content section .inner figure img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+#container .content section:hover {
+	flex: 1.5;
+	opacity: 1;
+	z-index: 2;
+}
+#container .content section:hover::before {
+	left: 0;
+	opacity: 1;
+}
+#container .content section:hover .inner .txt {
+	width: 80%;
+}
+#container .content section:hover .inner .txt h2 {
+	font-size: 2.5vw;
+	width: 80%;
+}
+#container .content section:hover .inner .txt h2::after {
+	width: 120%;
+	background: orange;
+}
+#container .content section:hover .inner figure {
+	filter: saturate(120%);
+	transform: translateY(3vh);
+}
+
+#container aside {
+	background: #222;
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: -100%;
+	opacity: 0;
+	z-index: 3;
+	padding: 20vh 14vw 15vh 20vw;
+	display: flex;
+	justify-content: space-between;
+	transition: 1s;
+}
+#container aside.on {
+	left: 0%;
+	opacity: 1;
+}
+#container aside .txt {
+	width: 30%;
+	height: 100%;
+	margin-right: 20px;
+}
+#container aside .txt h1 {
+	font-size: 4vw;
+	color: #ddd;
+	margin-top: 20px;
+	margin-bottom: 40px;
+	font-weight: 100;
+}
+#container aside .txt p {
+	margin-bottom: 60px;
+	color: #777;
+}
+#container aside .txt .btn_close {
+	color: orange;
+	cursor: pointer;
+}
+
+#footer {
+	color: #bbb;
+	position: fixed;
+	left: 0;
+	bottom: 1vh;
+	padding-left: 5vw;
+	font-size: 12px;
+}
